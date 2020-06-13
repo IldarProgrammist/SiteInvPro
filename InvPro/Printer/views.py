@@ -1,8 +1,6 @@
 from rest_framework import generics
-
 from Printer.models import PrinterModel, PrinterFirm
-from Printer.serializers import PrinterModelListSerializer, PrinterFirmListSerializer
-
+from Printer.serializers import *
 
 class PrinterModelCreateView(generics.CreateAPIView):
     serializer_class = PrinterModelListSerializer
@@ -32,3 +30,31 @@ class PrinterFirmListView(generics.ListAPIView):
 class PrinterFirmDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PrinterFirmListSerializer
     queryset = PrinterFirm.objects.all()
+
+class LocationCreateView(generics.CreateAPIView):
+    serializer_class = LocationSerializer
+
+
+class LocationListView(generics.ListAPIView):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.all()
+
+class LocationDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = LocationSerializer
+    queryset = Location.objects.all()
+
+#Статус
+
+class StatusCreateView(generics.CreateAPIView):
+    serializer_class = StatusSerializer
+
+
+class StatusListView(generics.ListAPIView):
+    serializer_class = StatusSerializer
+    queryset = PrinterStatus.objects.all()
+
+class StatusDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = StatusSerializer
+    queryset = PrinterStatus.objects.all()
+
+    

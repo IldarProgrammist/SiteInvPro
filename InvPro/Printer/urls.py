@@ -1,8 +1,7 @@
 from django.urls import path
 
 from Printer import views
-from Printer.views import PrinterModelDetailView, PrinterModelListView, PrinterModelCreateView, PrinterFirmCreateView, \
-    PrinterFirmListView, PrinterFirmDetailView  # PrinterFirmDetailView
+from Printer.views import *
 
 urlpatterns = [
     path('model/create/', PrinterModelCreateView.as_view()),
@@ -11,4 +10,10 @@ urlpatterns = [
     path('firm/create/', PrinterFirmCreateView.as_view()),
     path('firm/all/', PrinterFirmListView.as_view()),
     path('firm/detail/<int:pk>', PrinterFirmDetailView.as_view()),
+    path('location/create/', LocationCreateView.as_view()),
+    path('location/all/', LocationListView.as_view()),
+    path('location/detail/<int:pk>', LocationDetailView.as_view()),
+     path('status/create/', StatusCreateView.as_view()),
+    path('status/all/', StatusListView.as_view()),
+    path('starus/detail/<int:pk>', StatusDetailView.as_view()),
 ]

@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from Printer.models import PrinterModel, PrinterFirm
-
+from Printer.models import *
 
 # Список всех моделей принтеров
 class PrinterModelListSerializer(serializers.ModelSerializer):
@@ -15,3 +14,17 @@ class PrinterFirmListSerializer(serializers.ModelSerializer):
         model = PrinterFirm
         fields = '__all__'
 
+#Место расположение
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Location
+        fields = '__all__'
+
+
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PrinterStatus
+        fields = '__all__'
+        
+        
+    
