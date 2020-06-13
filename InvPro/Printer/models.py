@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class PrinterFirm(models.Model):
     name = models.CharField('Фирма принтера', max_length=20)
     logo = models.ImageField()
@@ -38,5 +37,18 @@ class Location(models.Model):
         def __str__(self):
             return self.room
             
+class PrinterStatus(models.Model):
+    name = models.CharField(verbose_name='Название статуса', max_length=10)
+    image = models.ImageField()
+
+    class Meta:
+        verbose_name = 'Статус'
+        verbose_name_plural = 'Статусы'
+        
+        def __str__(self):
+            return self.name
             
+        
+    
+                
 
