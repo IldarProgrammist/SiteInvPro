@@ -25,6 +25,18 @@ class PrinterModel(models.Model):
     def __str__(self):
         return self.name
 
+class Location(models.Model):
+    titul = models.IntegerField(verbose_name='Титул')    
+    room = models.CharField(verbose_name='Кабинет', max_length=10)
+    floor = models.IntegerField(verbose_name='Этаж')
 
-    
+
+    class Meta:
+        verbose_name = 'Место расположения'
+        verbose_name_plural = 'Места расположения'
+
+        def __str__(self):
+            return self.room
+            
+            
 

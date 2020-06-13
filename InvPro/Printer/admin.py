@@ -1,7 +1,18 @@
 from django.contrib import admin
+from Printer.models import PrinterFirm, PrinterModel, Location
 
-from Printer.models import PrinterFirm, PrinterModel
 
-admin.site.register(PrinterFirm)
-admin.site.register(PrinterModel)
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ('room','titul','floor')
+
+class PrinterFirmAdmin(admin.ModelAdmin):
+    list_display = ('name','logo')
+
+class PrinterModelAdmin(admin.ModelAdmin):
+    list_display = ('name','printerFirm')
+    
+
+admin.site.register(PrinterFirm, PrinterFirmAdmin)
+admin.site.register(PrinterModel,PrinterModelAdmin)
+admin.site.register(Location, LocationAdmin)
 
