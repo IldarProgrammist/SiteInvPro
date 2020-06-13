@@ -15,4 +15,7 @@ urlpatterns = [
     path('status/create/', StatusCreateView.as_view()),
     path('status/all/', StatusListView.as_view()),
     path('starus/detail/<int:pk>', StatusDetailView.as_view()),
+    path('printer/create/', PrinterCreateView.as_view()),
+    path('printer/all/', PrinterListView.as_view()),
+    path('printer/detail/<int:pk>', PrinterDetailView.as_view()),
 ]

@@ -57,4 +57,15 @@ class StatusDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = StatusSerializer
     queryset = PrinterStatus.objects.all()
 
+    #Принтеры
+class PrinterCreateView(generics.CreateAPIView):
+    serializer_class = PrinterSerializer
     
+class PrinterListView(generics.ListAPIView):
+    serializer_class = PrinterSerializer
+    queryset = Printer.objects.all()
+
+class PrinterDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = StatusSerializer
+    queryset = Printer.objects.all()
+

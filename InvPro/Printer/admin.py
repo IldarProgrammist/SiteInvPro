@@ -3,7 +3,7 @@ from Printer.models import *
 
 class LocationAdmin(admin.ModelAdmin):
     list_display = ('room','titul','floor')
-
+    
 class PrinterFirmAdmin(admin.ModelAdmin):
     list_display = ('name','logo')
 

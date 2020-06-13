@@ -25,6 +25,13 @@ class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = PrinterStatus
         fields = '__all__'
+
+
+class PrinterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Printer
+        fields = '__all__'
         
+    
         
     
