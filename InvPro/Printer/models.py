@@ -25,7 +25,7 @@ class PrinterModel(models.Model):
         return self.name
 
 class Location(models.Model):
-    titul = models.IntegerField(verbose_name='Титул')    
+    titul = models.CharField(verbose_name='Титул',max_length=10)    
     room = models.CharField(verbose_name='Кабинет', max_length=10)
     floor = models.IntegerField(verbose_name='Этаж')
 
@@ -35,7 +35,8 @@ class Location(models.Model):
         verbose_name_plural = 'Места расположения'
 
         def __str__(self):
-            return self.room
+            return self.room, self.floor
+            
             
 class PrinterStatus(models.Model):
     name = models.CharField(verbose_name='Название статуса', max_length=10)
@@ -52,9 +53,9 @@ class PrinterStatus(models.Model):
 class Printer(models.Model):
     serialNumber = models.CharField(verbose_name='Серийный номер', max_length=15, unique=True)
     ipAdress = models.CharField(verbose_name='Ip-адрес', max_length=12,unique=True)
-    printerModel = models.ForeignKey(PrinterModel, on_delete=models.CASCADE)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    printerStatus = models.ForeignKey(PrinterStatus,on_delete=models.CASCADE)    
+    printerModel = models.ForeignKey(PrinterModel, verbose_name='Модель принтера', on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, verbose_name='Место расположения', on_delete=models.CASCADE)
+    printerStatus = models.ForeignKey(PrinterStatus,verbose_name='Статус', on_delete=models.CASCADE)    
             
     
     class Meta:
