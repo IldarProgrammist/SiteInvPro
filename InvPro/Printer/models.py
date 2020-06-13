@@ -47,8 +47,23 @@ class PrinterStatus(models.Model):
         
         def __str__(self):
             return self.name
+
+
+class Printer(models.Model):
+    serialNumber = models.CharField(verbose_name='Серийный номер', max_length=15, unique=True)
+    ipAdress = models.CharField(verbose_name='Ip-адрес', max_length=12,unique=True)
+    printerModel = models.ForeignKey(PrinterModel, on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    printerStatus = models.ForeignKey(PrinterStatus,on_delete=models.CASCADE)    
             
+    
+    class Meta:
+        verbose_name = 'Принтер'
+        verbose_name_plural = 'Принтеры'
         
+        def __str__(self):
+            return self.serialNumber
+
     
                 
 
