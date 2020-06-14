@@ -1,6 +1,4 @@
 from django.urls import path
-
-from Printer.serializers import ZoneDetailView
 from Printer.views import *
 
 urlpatterns = [
@@ -12,5 +10,8 @@ urlpatterns = [
     path('firm/detail/<int:pk>', PrinterFirmDetailView.as_view()),
     path('zone/create/', ZoneCreateView.as_view()),
     path('zone/all/', ZoneListView.as_view()),
-    path('zone/detail/<int:pk>', ZoneDetailView.as_view() )
-  ]
+    path('zone/detail/<int:pk>', ZoneDetailView.as_view()),
+    path('typeroom/create/', TypeRoomCreateView.as_view()),
+    path('typeroom/all/',    TypeRoomListView.as_view()),
+    path('typeroom/detail/<int:pk>', TypeRoomDetailView.as_view()),
+]

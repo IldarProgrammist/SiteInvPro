@@ -35,7 +35,24 @@ class Zone(models.Model):
 
     def __str__(self):
         return self.name
-                
+
+
+#Типа помещений
+class TypeRoom(models.Model):
+    name = models.CharField('Тип помещения', max_length=10)
+
+    class Meta:
+        verbose_name = 'Тип помещения'
+        verbose_name_plural = 'Типы помещений'
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
+
             
 
     

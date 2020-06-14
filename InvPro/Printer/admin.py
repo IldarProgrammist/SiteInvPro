@@ -22,3 +22,4 @@ class PrinterStatusAdmin(admin.ModelAdmin):
 admin.site.register(PrinterFirm, PrinterFirmAdmin)
 admin.site.register(PrinterModel, PrinterModelAdmin)
 admin.site.register(Zone)
+admin.site.register(TypeRoom)

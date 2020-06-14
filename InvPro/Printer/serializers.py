@@ -26,4 +26,15 @@ class ZoneDetailView(serializers.ModelSerializer):
         fields = '__all__'
 
         
-    
+
+class TypeRoomListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TypeRoom
+        fields = '__all__'
+
+
+class TypeRoomDetailView(serializers.ModelSerializer):
+    class Meta:
+        model = TypeRoom
+        fields = '__all__'
+
