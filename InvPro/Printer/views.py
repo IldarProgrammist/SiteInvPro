@@ -1,6 +1,7 @@
 from rest_framework import generics
-from Printer.models import PrinterModel, PrinterFirm
-from Printer.serializers import *
+from Printer.models import *
+from Printer.serializers import PrinterModelListSerializer, PrinterFirmListSerializer, ZoneListSerializer
+
 
 class PrinterModelCreateView(generics.CreateAPIView):
     serializer_class = PrinterModelListSerializer
@@ -14,7 +15,6 @@ class PrinterModelListView(generics.ListAPIView):
 class PrinterModelDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PrinterModelListSerializer
     queryset = PrinterModel.objects.all()
-
 
 # Информация о фирмах принтеров
 
@@ -31,41 +31,17 @@ class PrinterFirmDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PrinterFirmListSerializer
     queryset = PrinterFirm.objects.all()
 
-class LocationCreateView(generics.CreateAPIView):
-    serializer_class = LocationSerializer
+
+#Зоны на предприятии
+
+class ZoneCreateView(generics.CreateAPIView):
+    serializer_class = ZoneListSerializer
+
+class ZoneListView(generics.ListAPIView):
+    serializer_class = ZoneListSerializer
+    queryset = Zone.objects.all()
 
 
-class LocationListView(generics.ListAPIView):
-    serializer_class = LocationSerializer
-    queryset = Location.objects.all()
-
-class LocationDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = LocationSerializer
-    queryset = Location.objects.all()
-
-#Статус
-
-class StatusCreateView(generics.CreateAPIView):
-    serializer_class = StatusSerializer
-
-
-class StatusListView(generics.ListAPIView):
-    serializer_class = StatusSerializer
-    queryset = PrinterStatus.objects.all()
-
-class StatusDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = StatusSerializer
-    queryset = PrinterStatus.objects.all()
-
-    #Принтеры
-class PrinterCreateView(generics.CreateAPIView):
-    serializer_class = PrinterSerializer
-    
-class PrinterListView(generics.ListAPIView):
-    serializer_class = PrinterSerializer
-    queryset = Printer.objects.all()
-
-class PrinterDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = StatusSerializer
-    queryset = Printer.objects.all()
-
+class ZoneDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ZoneListSerializer
+    queryset = Zone.objects.all()
