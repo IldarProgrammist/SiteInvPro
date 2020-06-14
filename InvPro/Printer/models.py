@@ -38,6 +38,7 @@ class Zone(models.Model):
 
 
 #Типа помещений
+
 class TypeRoom(models.Model):
     name = models.CharField('Тип помещения', max_length=10)
 
