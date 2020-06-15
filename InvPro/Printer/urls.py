@@ -16,5 +16,8 @@ urlpatterns = [
     path('typeroom/detail/<int:pk>', TypeRoomDetailView.as_view()),
     path('location/create/', LocationCreatetView.as_view()),
     path('location/all/',    LocationListView.as_view()),
-    path('location/detail/<int:pk>', LocationDetailView.as_view())
+    path('location/detail/<int:pk>', LocationDetailView.as_view()),
+    path('status/create/', StatusCreateView.as_view()),
+    path('status/all/', StatusListView.as_view()),
+    path('status/detail/<int:pk>', StatusDetailView.as_view()),
 ]

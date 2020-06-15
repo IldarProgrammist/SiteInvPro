@@ -37,7 +37,7 @@ class Zone(models.Model):
         return self.name
 
 
-#Типа помещений
+# Типа помещений
 
 class TypeRoom(models.Model):
     name = models.CharField('Тип помещения', max_length=10)
@@ -50,7 +50,7 @@ class TypeRoom(models.Model):
         return self.name
 
 
-#Место расположения
+# Место расположения
 class LocationPrinter(models.Model):
     numberRoom = models.CharField(verbose_name='Номер кабинета', max_length=10, unique=True)
     typeRoom = models.ForeignKey(TypeRoom, on_delete=models.CASCADE, verbose_name='Тип помещения')
@@ -66,7 +66,7 @@ class LocationPrinter(models.Model):
         return 'Кабинет номер: {}'.format(self.numberRoom)
 
 
-#Статус принтера
+# Статус принтера
 class Status(models.Model):
     name = models.CharField(verbose_name='Статус', max_length=15)
 
@@ -76,7 +76,3 @@ class Status(models.Model):
 
     def __str__(self):
         return self.name
-
-
-    
-

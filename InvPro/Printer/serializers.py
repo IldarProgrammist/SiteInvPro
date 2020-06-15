@@ -50,3 +50,14 @@ class LocationListSerializer(serializers.ModelSerializer):
         model = LocationPrinter
         fields = '__all__'
 
+
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Status
+        fields = '__all__'
+
+
+class StatusListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Status
+        fields = '__all__'
