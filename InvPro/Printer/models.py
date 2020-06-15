@@ -65,9 +65,15 @@ class LocationPrinter(models.Model):
         return 'Кабинет номер: {}'.format(self.numberRoom)
 
 
+class Status(models.Model):
+    name = models.CharField(verbose_name='Статус', max_length=15)
 
+    class Meta:
+        verbose_name = 'Cтатус'
+        verbose_name_plural = 'Статусы'
 
+    def __str__(self):
+        return self.name
 
     
-                
 
