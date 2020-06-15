@@ -50,11 +50,25 @@ class TypeRoom(models.Model):
         return self.name
 
 
+class LocationPrinter(models.Model):
+    numberRoom = models.CharField(verbose_name='Номер кабинета', max_length=10, unique=True)
+    typeRoom = models.ForeignKey(TypeRoom, on_delete=models.CASCADE, verbose_name='Тип помещения')
+    numberTutul = models.IntegerField(verbose_name='Номер титула')
+    floor = models.IntegerField(verbose_name='Этаж')
+    zone = models.ForeignKey(Zone, on_delete=models.CASCADE, verbose_name='Зона')
+
+    class Meta:
+        verbose_name = 'Место расположение'
+        verbose_name_plural = 'Места расположания'
+
+
+
+    def __str__(self):
+        return 'Кабинет номер: {}'.format(self.numberRoom)
 
 
 
 
-            
 
     
                 
