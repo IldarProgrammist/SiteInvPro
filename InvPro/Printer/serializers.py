@@ -38,3 +38,15 @@ class TypeRoomDetailView(serializers.ModelSerializer):
         model = TypeRoom
         fields = '__all__'
 
+
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LocationPrinter
+        fields = '__all__'
+
+
+class LocationListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LocationPrinter
+        fields = '__all__'
+

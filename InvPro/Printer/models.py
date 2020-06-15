@@ -61,8 +61,6 @@ class LocationPrinter(models.Model):
         verbose_name = 'Место расположение'
         verbose_name_plural = 'Места расположания'
 
-
-
     def __str__(self):
         return 'Кабинет номер: {}'.format(self.numberRoom)
 

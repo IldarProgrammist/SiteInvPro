@@ -14,4 +14,7 @@ urlpatterns = [
     path('typeroom/create/', TypeRoomCreateView.as_view()),
     path('typeroom/all/',    TypeRoomListView.as_view()),
     path('typeroom/detail/<int:pk>', TypeRoomDetailView.as_view()),
+    path('location/create/', LocationCreatetView.as_view()),
+    path('location/all/',    LocationListView.as_view()),
+    path('location/detail/<int:pk>', LocationDetailView.as_view())
 ]

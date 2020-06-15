@@ -1,7 +1,7 @@
 from rest_framework import generics
 from Printer.models import *
 from Printer.serializers import PrinterModelListSerializer, PrinterFirmListSerializer, ZoneListSerializer, \
-    TypeRoomListSerializer
+    TypeRoomListSerializer, LocationSerializer, LocationListSerializer
 
 
 class PrinterModelCreateView(generics.CreateAPIView):
@@ -16,6 +16,7 @@ class PrinterModelListView(generics.ListAPIView):
 class PrinterModelDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PrinterModelListSerializer
     queryset = PrinterModel.objects.all()
+
 
 # Информация о фирмах принтеров
 
@@ -33,10 +34,11 @@ class PrinterFirmDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = PrinterFirm.objects.all()
 
 
-#Зоны на предприятии
+# Зоны на предприятии
 
 class ZoneCreateView(generics.CreateAPIView):
     serializer_class = ZoneListSerializer
+
 
 class ZoneListView(generics.ListAPIView):
     serializer_class = ZoneListSerializer
@@ -48,10 +50,10 @@ class ZoneDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Zone.objects.all()
 
 
-
 # Тип помещений
 class TypeRoomCreateView(generics.CreateAPIView):
     serializer_class = TypeRoomListSerializer
+
 
 class TypeRoomListView(generics.ListAPIView):
     serializer_class = TypeRoomListSerializer
@@ -63,4 +65,17 @@ class TypeRoomDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = TypeRoom.objects.all()
 
 
+# Место расположения
 
+class LocationCreatetView(generics.CreateAPIView):
+    serializer_class = LocationSerializer
+
+
+class LocationListView(generics.ListAPIView):
+    serializer_class = LocationListSerializer
+    queryset = LocationPrinter.objects.all()
+
+
+class LocationDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = LocationListSerializer
+    queryset = LocationPrinter.objects.all()
