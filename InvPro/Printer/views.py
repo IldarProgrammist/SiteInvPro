@@ -84,9 +84,11 @@ class LocationDetailView(generics.RetrieveUpdateDestroyAPIView):
 class StatusCreateView(generics.CreateAPIView):
     serializer_class = StatusSerializer
 
+
 class StatusListView(generics.ListAPIView):
     serializer_class = StatusSerializer
     queryset = Status.objects.all()
+
 
 class StatusDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = StatusSerializer
