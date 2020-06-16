@@ -19,6 +19,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="Printer.models.LocationPrinter.objects" />
+          <option value="Printer.models.PrinterFirm.objects" />
         </list>
       </option>
     </inspection_tool>

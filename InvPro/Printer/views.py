@@ -55,6 +55,9 @@ class TypeRoomCreateView(generics.CreateAPIView):
     serializer_class = TypeRoomListSerializer
 
 
+
+
+
 class TypeRoomListView(generics.ListAPIView):
     serializer_class = TypeRoomListSerializer
     queryset = TypeRoom.objects.all()

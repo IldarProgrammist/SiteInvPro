@@ -66,7 +66,7 @@ class LocationPrinter(models.Model):
         return 'Кабинет номер: {}'.format(self.numberRoom)
 
 
-# Статус принтера
+# Статус
 class Status(models.Model):
     name = models.CharField(verbose_name='Статус', max_length=15)
 
@@ -76,3 +76,23 @@ class Status(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+
+
+# Принтеры
+
+class Printer(models.Model):
+    serialNamber = models.CharField(verbose_name='Серийный номер', max_length=20)
+    ip = models.CharField(verbose_name='ip-адрес', max_length=15)
+
+    class Meta:
+        verbose_name = 'Принтер'
+        verbose_name_plural = 'Принтеры'
+
+    def __str__(self):
+        return format(self.serialNamber)
+
+# Статус принтера
+
