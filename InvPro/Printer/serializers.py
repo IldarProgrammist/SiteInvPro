@@ -61,3 +61,8 @@ class StatusListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
         fields = '__all__'
+
+class StatusPSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StatusP
+        fields = '__all__'

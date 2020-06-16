@@ -20,4 +20,7 @@ urlpatterns = [
     path('status/create/', StatusCreateView.as_view()),
     path('status/all/', StatusListView.as_view()),
     path('status/detail/<int:pk>', StatusDetailView.as_view()),
+    path('statusp/create/',  PrinterStatusCreateView.as_view()),
+    path('statusp/all/', StatusPListView.as_view()),
+    path('statusp/detail/<int:pk>',StatusPDetailView.as_view())
 ]

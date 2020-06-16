@@ -1,7 +1,7 @@
 from rest_framework import generics
 from Printer.models import *
 from Printer.serializers import PrinterModelListSerializer, PrinterFirmListSerializer, ZoneListSerializer, \
-    TypeRoomListSerializer, LocationSerializer, LocationListSerializer, StatusSerializer
+    TypeRoomListSerializer, LocationSerializer, LocationListSerializer, StatusSerializer, StatusPSerializer
 
 
 class PrinterModelCreateView(generics.CreateAPIView):
@@ -96,3 +96,17 @@ class StatusListView(generics.ListAPIView):
 class StatusDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = StatusSerializer
     queryset = Status.objects.all()
+
+
+class PrinterStatusCreateView(generics.CreateAPIView):
+    serializer_class =  StatusPSerializer
+
+class StatusPListView(generics.ListAPIView):
+    serializer_class = StatusPSerializer
+    queryset = StatusP.objects.all()
+
+
+
+class StatusPDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = StatusPSerializer
+    queryset = StatusP.objects.all()
