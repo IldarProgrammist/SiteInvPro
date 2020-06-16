@@ -55,9 +55,6 @@ class TypeRoomCreateView(generics.CreateAPIView):
     serializer_class = TypeRoomListSerializer
 
 
-
-
-
 class TypeRoomListView(generics.ListAPIView):
     serializer_class = TypeRoomListSerializer
     queryset = TypeRoom.objects.all()
@@ -99,12 +96,12 @@ class StatusDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class PrinterStatusCreateView(generics.CreateAPIView):
-    serializer_class =  StatusPSerializer
+    serializer_class = StatusPSerializer
+
 
 class StatusPListView(generics.ListAPIView):
     serializer_class = StatusPSerializer
     queryset = StatusP.objects.all()
-
 
 
 class StatusPDetailView(generics.RetrieveUpdateDestroyAPIView):
