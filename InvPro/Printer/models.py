@@ -78,9 +78,6 @@ class Status(models.Model):
         return self.name
 
 
-
-
-
 # Принтеры
 
 class Printer(models.Model):
@@ -94,5 +91,15 @@ class Printer(models.Model):
     def __str__(self):
         return format(self.serialNamber)
 
+
 # Статус принтера
 
+class StatusP(models.Model):
+    printer = models.ForeignKey(Printer, on_delete=models.CASCADE, verbose_name='Серийный номер')
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, verbose_name='Статус')
+    dateChange = models.DateTimeField(verbose_name='Дата',auto_now=True)
+    discription = models.TextField('Описание', blank=True)
+
+    class Meta:
+        verbose_name = 'Статус принтера'
+        verbose_name_plural = 'Статусы принтеров'
