@@ -1,11 +1,13 @@
 from rest_framework import serializers
 from Printer.models import *
 
+
 # Список всех моделей принтеров
 class PrinterModelListSerializer(serializers.ModelSerializer):
     class Meta:
         model = PrinterModel
         fields = '__all__'
+
 
 # Список всех фирм принтеров
 class PrinterFirmListSerializer(serializers.ModelSerializer):
@@ -25,7 +27,6 @@ class ZoneDetailView(serializers.ModelSerializer):
         model = Zone
         fields = '__all__'
 
-        
 
 class TypeRoomListSerializer(serializers.ModelSerializer):
     class Meta:
@@ -61,6 +62,7 @@ class StatusListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
         fields = '__all__'
+
 
 class StatusPSerializer(serializers.ModelSerializer):
     class Meta:
