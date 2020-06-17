@@ -1,7 +1,7 @@
 from django.contrib import admin
 from Printer.models import *
 
-
+#
 class LocationAdmin(admin.ModelAdmin):
     list_display = ('room', 'titul', 'floor')
 

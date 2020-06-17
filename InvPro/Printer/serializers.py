@@ -63,7 +63,7 @@ class StatusListSerializer(serializers.ModelSerializer):
         model = Status
         fields = '__all__'
 
-
+#
 class StatusPSerializer(serializers.ModelSerializer):
     class Meta:
         model = StatusP

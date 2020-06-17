@@ -1,6 +1,6 @@
 from django.db import models
 
-
+#
 class PrinterFirm(models.Model):
     name = models.CharField('Фирма принтера', max_length=20)
     logo = models.ImageField()
