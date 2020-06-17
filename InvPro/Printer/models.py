@@ -50,34 +50,6 @@ class TypeRoom(models.Model):
         return self.name
 
 
-# Место расположения
-class LocationPrinter(models.Model):
-    numberRoom = models.CharField(verbose_name='Номер кабинета', max_length=10, unique=True)
-    typeRoom = models.ForeignKey(TypeRoom, on_delete=models.CASCADE, verbose_name='Тип помещения')
-    numberTutul = models.IntegerField(verbose_name='Номер титула')
-    floor = models.IntegerField(verbose_name='Этаж')
-    zone = models.ForeignKey(Zone, on_delete=models.CASCADE, verbose_name='Зона')
-
-    class Meta:
-        verbose_name = 'Место расположение'
-        verbose_name_plural = 'Места расположания'
-
-    def __str__(self):
-        return 'Кабинет номер: {}'.format(self.numberRoom)
-
-
-# Статус
-class Status(models.Model):
-    name = models.CharField(verbose_name='Статус', max_length=15)
-
-    class Meta:
-        verbose_name = 'Cтатус'
-        verbose_name_plural = 'Статусы'
-
-    def __str__(self):
-        return self.name
-
-
 # Принтеры
 
 class Printer(models.Model):
@@ -90,6 +62,36 @@ class Printer(models.Model):
 
     def __str__(self):
         return format(self.serialNamber)
+
+
+# Место расположения
+class LocationPrinter(models.Model):
+    serialNamber = models.ForeignKey(Printer, models.CASCADE, verbose_name='Серийный номер')
+    numberRoom = models.CharField(verbose_name='Номер кабинета', max_length=10)
+    typeRoom = models.ForeignKey(TypeRoom, on_delete=models.CASCADE, verbose_name='Тип помещения')
+    numberTutul = models.IntegerField(verbose_name='Номер титула')
+    floor = models.IntegerField(verbose_name='Этаж')
+    zone = models.ForeignKey(Zone, on_delete=models.CASCADE, verbose_name='Зона')
+    dateChange = models.DateTimeField(verbose_name='Дата', auto_now=True)
+
+    class Meta:
+        verbose_name = 'Место расположение'
+        verbose_name_plural = 'Места расположания'
+
+    def __str__(self):
+        return 'Кабинет номер: {}'.format(self.numberRoom)
+
+# Статус
+class Status(models.Model):
+    name = models.CharField(verbose_name='Статус', max_length=15)
+
+    class Meta:
+        verbose_name = 'Cтатус'
+        verbose_name_plural = 'Статусы'
+
+    def __str__(self):
+        return self.name
+
 
 
 # Статус принтера
