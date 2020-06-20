@@ -25,6 +25,8 @@ class PrinterAdmin(admin.ModelAdmin):
 
 class StatusPAdmin(admin.ModelAdmin):
     list_display = ('printer', 'status', 'dateChangeStatus', 'discription')
+    search_fields = ['status__name']
+
 
 class LocAdmin(admin.ModelAdmin):
     list_display = ('serialNamber','numberRoom','typeRoom','numberTutul','floor','zone', 'dateChange')

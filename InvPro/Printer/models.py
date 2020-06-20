@@ -105,3 +105,6 @@ class StatusP(models.Model):
     class Meta:
         verbose_name = 'Статус принтера'
         verbose_name_plural = 'Статусы принтеров'
+
+
+
