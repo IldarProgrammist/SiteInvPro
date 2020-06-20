@@ -6,7 +6,6 @@ class LocationAdmin(admin.ModelAdmin):
     list_display = ('room', 'titul', 'floor')
 
 
-
 class PrinterFirmAdmin(admin.ModelAdmin):
     list_display = ('name', 'logo')
 
@@ -29,8 +28,7 @@ class StatusPAdmin(admin.ModelAdmin):
 
 class LocAdmin(admin.ModelAdmin):
     list_display = ('serialNamber','numberRoom','typeRoom','numberTutul','floor','zone', 'dateChange')
-    search_fields = ['serialNamber']
-
+    search_fields = ['serialNamber__serialNamber']
 
 
 admin.site.register(PrinterFirm, PrinterFirmAdmin)
