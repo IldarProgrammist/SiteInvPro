@@ -1,6 +1,6 @@
 from django.db import models
 
-#
+
 class PrinterFirm(models.Model):
     name = models.CharField('Фирма принтера', max_length=20)
     logo = models.ImageField()
@@ -81,6 +81,7 @@ class LocationPrinter(models.Model):
     def __str__(self):
         return 'Кабинет номер: {}'.format(self.numberRoom)
 
+
 # Статус
 class Status(models.Model):
     name = models.CharField(verbose_name='Статус', max_length=15)
@@ -93,13 +94,12 @@ class Status(models.Model):
         return self.name
 
 
-
 # Статус принтера
 
 class StatusP(models.Model):
     printer = models.ForeignKey(Printer, on_delete=models.CASCADE, verbose_name='Серийный номер')
     status = models.ForeignKey(Status, on_delete=models.CASCADE, verbose_name='Статус')
-    dateChange = models.DateTimeField(verbose_name='Дата',auto_now=True)
+    dateChangeStatus = models.DateTimeField(verbose_name='Дата', auto_now=True)
     discription = models.TextField('Описание', blank=True)
 
     class Meta:

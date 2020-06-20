@@ -25,10 +25,12 @@ class PrinterAdmin(admin.ModelAdmin):
 
 
 class StatusPAdmin(admin.ModelAdmin):
-    list_display = ('printer', 'status', 'dateChange', 'discription')
+    list_display = ('printer', 'status', 'dateChangeStatus', 'discription')
 
 class LocAdmin(admin.ModelAdmin):
     list_display = ('serialNamber','numberRoom','typeRoom','numberTutul','floor','zone', 'dateChange')
+    search_fields = ['serialNamber']
+
 
 
 admin.site.register(PrinterFirm, PrinterFirmAdmin)
