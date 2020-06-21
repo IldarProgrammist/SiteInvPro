@@ -57,6 +57,7 @@ class TypeRoom(models.Model):
 class Printer(models.Model):
     serialNamber = models.CharField(verbose_name='Серийный номер', max_length=20)
     ip = models.CharField(verbose_name='ip-адрес', max_length=15)
+    modelPrinter = models.ForeignKey(PrinterModel, on_delete=models.CASCADE,verbose_name='Модель принтера')
 
     class Meta:
         verbose_name = 'Принтер'

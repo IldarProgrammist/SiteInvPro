@@ -20,7 +20,7 @@ class PrinterStatusAdmin(admin.ModelAdmin):
 
 
 class PrinterAdmin(admin.ModelAdmin):
-    list_display = ('serialNamber', 'ip')
+    list_display = ('serialNamber', 'modelPrinter','ip')
 
 
 class StatusPAdmin(admin.ModelAdmin):
