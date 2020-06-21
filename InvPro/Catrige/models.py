@@ -33,12 +33,30 @@ class StatusCatrige(models.Model):
     name = models.CharField(verbose_name='Название статуса', max_length=15)
 
     class Meta:
-        verbose_name = 'Статус картриджа'
-        verbose_name_plural = 'Статусы картриджей'
+        verbose_name = 'Статус'
+        verbose_name_plural = 'Статусы'
 
     def __str__(self):
         return self.name
 
 
+class Catrige(models.Model):
+    serialNumber = models.CharField(max_length=15, verbose_name='Серийный номер', unique=True)
+    modelCatrige = models.ForeignKey(CatrigeModel, on_delete=CASCADE, verbose_name='Модель картриджа')
+
+    class Meta:
+        verbose_name = 'Картридж'
+        verbose_name_plural = 'Картриджи'
+
+    def __str__(self):
+        return self.serialNumber
 
 
+class StarusC(models.Model):
+    serialNumber = models.ForeignKey(Catrige, verbose_name='Серийный номер', on_delete=models.CASCADE)
+    catrigeStatus = models.ForeignKey(StatusCatrige, verbose_name='Статус картриджа', on_delete=models.CASCADE)
+    dateChange = models.DateField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Статус картриджа'
+        verbose_name_plural = 'Статусы картриджей'
