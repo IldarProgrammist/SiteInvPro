@@ -1,3 +1,7 @@
 from django.contrib import admin
+from Catrige.models import Color, FirmCatrige
 
-# Register your models here.
+admin.site.register(Color)
+admin.site.register(FirmCatrige)
+
+

@@ -17,6 +17,8 @@ class PrinterModel(models.Model):
     name = models.CharField('Модель принтера', max_length=20)
     photo = models.ImageField()
     printerFirm = models.ForeignKey(PrinterFirm, on_delete=models.CASCADE)
+    #Цветной или нет
+    printerColor = models.BooleanField(verbose_name='Является цветным')
 
     class Meta:
         verbose_name = 'Модель принтера'
