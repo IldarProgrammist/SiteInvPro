@@ -27,3 +27,15 @@ class CatrigeModel(models.Model):
     def __str__(self):
         return self.name
 
+
+# Статус картриджа
+class StatusCatrige(models.Model):
+    name = models.CharField(verbose_name='Название статуса', max_length=15)
+
+    class Meta:
+        verbose_name = 'Статус картриджа'
+        verbose_name_plural = 'Статусы картриджей'
+
+    def __str__(self):
+        return self.name
+

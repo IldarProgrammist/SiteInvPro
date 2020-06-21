@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Catrige.models import Color, CatrigeModel
+from Catrige.models import Color, CatrigeModel, StatusCatrige
 
 
 class CatrigeModelAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class CatrigeModelAdmin(admin.ModelAdmin):
 
 admin.site.register(Color)
 admin.site.register(CatrigeModel, CatrigeModelAdmin)
+admin.site.register(StatusCatrige)
