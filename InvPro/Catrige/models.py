@@ -1,30 +1,29 @@
 from django.db import models
-from Printer.models import PrinterModel
+from django.db.models import CASCADE
 
 
 # Цвета
 class Color(models.Model):
     name = models.CharField('Цвет', max_length=10)
-    imageColor = models.ImageField()
+    adword = models.CharField(verbose_name='Буква', max_length=1)
 
     class Meta:
         verbose_name = 'Цвет'
         verbose_name_plural = 'Цвета'
 
-        def __str__(self):
-            return self.name
+    def __str__(self):
+        return self.name
 
 
-# Добавление FirmCatrige
-
-class FirmCatrige(models.Model):
-    name = models.CharField('Фирма картриджа', max_length=20)
+# Модели картриджей
+class CatrigeModel(models.Model):
+    name = models.CharField(verbose_name='Название модели', max_length=20)
+    color = models.ForeignKey(Color, on_delete=CASCADE, verbose_name='Цвет')
 
     class Meta:
-        verbose_name = 'Фирма картриджа'
-        verbose_name_plural = 'Фирмы картриджей'
+        verbose_name = 'Модель картриджа'
+        verbose_name_plural = 'Модели картриджей'
 
-        def __str__(self):
-            return self.name
-
+    def __str__(self):
+        return self.name
 
