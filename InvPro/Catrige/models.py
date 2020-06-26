@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models import CASCADE
 
+from  Printer.models import Printer
+from Printer.models import PrinterModel
 
 # Цвета
 class Color(models.Model):
@@ -19,7 +21,7 @@ class Color(models.Model):
 class CatrigeModel(models.Model):
     name = models.CharField(verbose_name='Название модели', max_length=20)
     color = models.ForeignKey(Color, on_delete=CASCADE, verbose_name='Цвет')
-
+    printerModel = models.ForeignKey(PrinterModel,on_delete=CASCADE, verbose_name='Модель принтера')
     class Meta:
         verbose_name = 'Модель картриджа'
         verbose_name_plural = 'Модели картриджей'
@@ -43,6 +45,7 @@ class StatusCatrige(models.Model):
 class Catrige(models.Model):
     serialNumber = models.CharField(max_length=15, verbose_name='Серийный номер', unique=True)
     modelCatrige = models.ForeignKey(CatrigeModel, on_delete=CASCADE, verbose_name='Модель картриджа')
+    original = models.BooleanField(verbose_name='Оригинал')
 
     class Meta:
         verbose_name = 'Картридж'
@@ -52,11 +55,12 @@ class Catrige(models.Model):
         return self.serialNumber
 
 
-class StarusC(models.Model):
-    serialNumber = models.ForeignKey(Catrige, verbose_name='Серийный номер', on_delete=models.CASCADE)
-    catrigeStatus = models.ForeignKey(StatusCatrige, verbose_name='Статус картриджа', on_delete=models.CASCADE)
-    dateChange = models.DateField(auto_now=True)
+class  JurnalCatrige(models.Model):
+    serialNumberCatrige = models.ForeignKey(Catrige, verbose_name='Серийный номер', on_delete=CASCADE)
+    status = models.ForeignKey(StatusCatrige, verbose_name='Статус', on_delete=CASCADE)
+    dateExtation = models.DateField(auto_now=True, verbose_name='Дата изменения')
 
     class Meta:
         verbose_name = 'Статус картриджа'
         verbose_name_plural = 'Статусы картриджей'
+
